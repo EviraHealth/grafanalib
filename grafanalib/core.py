@@ -651,6 +651,7 @@ class Template(object):
         :param text: text for current
         :param value: value for current
         :param definition: definition for template
+        :param skipUrlSync: skipUrlSync for template
     """
 
     name = attr.ib()
@@ -686,6 +687,7 @@ class Template(object):
     text = attr.ib(default=None)
     value = attr.ib(default=None)
     definition = attr.ib(default=None)
+    skipUrlSync = attr.ib(default=None)
 
     def __attrs_post_init__(self):
         if self.type == 'custom':
@@ -732,6 +734,7 @@ class Template(object):
             'query': self.query,
             'refresh': self.refresh,
             'regex': self.regex,
+            'skipUrlSync': self.skipUrlSync,
             'sort': self.sort,
             'type': self.type,
             'useTags': self.useTags,
