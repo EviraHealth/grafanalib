@@ -648,6 +648,8 @@ class Template(object):
             SHOW (default), HIDE_LABEL, HIDE_VARIABLE
         :param isNone: set IsNone for current
         :param tags: tags for current
+        :param text: text for current
+        :param value: value for current
     """
 
     name = attr.ib()
