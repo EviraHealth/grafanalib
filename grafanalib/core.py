@@ -680,6 +680,8 @@ class Template(object):
     sort = attr.ib(default=SORT_ALPHA_ASC)
     isNone = attr.ib(default=None)
     tags = attr.ib(default=None)
+    text = attr.ib(default=None)
+    value = attr.ib(default=None)
 
     def __attrs_post_init__(self):
         if self.type == 'custom':
@@ -701,8 +703,8 @@ class Template(object):
                         break
         else:
             self._current = {
-                'text': self.default,
-                'value': self.default
+                'text': self.text,
+                'value': self.value
             }
 
             if self.isNone is not None:
