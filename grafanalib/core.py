@@ -650,6 +650,7 @@ class Template(object):
         :param tags: tags for current
         :param text: text for current
         :param value: value for current
+        :param definition: definition for template
     """
 
     name = attr.ib()
@@ -684,6 +685,7 @@ class Template(object):
     tags = attr.ib(default=None)
     text = attr.ib(default=None)
     value = attr.ib(default=None)
+    definition = attr.ib(default=None)
 
     def __attrs_post_init__(self):
         if self.type == 'custom':
@@ -720,6 +722,7 @@ class Template(object):
             'allValue': self.allValue,
             'current': self._current,
             'datasource': self.dataSource,
+            'definition': self.definition,
             'hide': self.hide,
             'includeAll': self.includeAll,
             'label': self.label,
