@@ -646,6 +646,8 @@ class Template(object):
             interval, datasource, custom, constant, adhoc.
         :param hide: Hide this variable in the dashboard, can be one of:
             SHOW (default), HIDE_LABEL, HIDE_VARIABLE
+        :param isNone: set IsNone for current
+        :param tags: tags for current
     """
 
     name = attr.ib()
@@ -676,6 +678,8 @@ class Template(object):
     type = attr.ib(default='query')
     hide = attr.ib(default=SHOW)
     sort = attr.ib(default=SORT_ALPHA_ASC)
+    isNone = attr.ib(default=None)
+    tags = attr.ib(default=None)
 
     def __attrs_post_init__(self):
         if self.type == 'custom':
@@ -698,9 +702,14 @@ class Template(object):
         else:
             self._current = {
                 'text': self.default,
-                'value': self.default,
-                'tags': [],
+                'value': self.default
             }
+
+            if self.isNone is not None:
+                self._current['isNone'] = self.isNone
+
+            if self.tags is not None:
+                self._current['tags'] = self.tags
 
     def to_json_data(self):
         return {
