@@ -1083,6 +1083,10 @@ class Graph(object):
         validator=instance_of(YAxes),
     )
     alert = attr.ib(default=None)
+    height = attr.ib(
+        default=attr.Factory(lambda: DEFAULT_ROW_HEIGHT),
+        validator=instance_of(Pixels),
+    )
 
     def to_json_data(self):
         graphObject = {
@@ -1094,6 +1098,7 @@ class Graph(object):
             'error': self.error,
             'fill': self.fill,
             'grid': self.grid,
+            'height': self.height,
             'id': self.id,
             'isNew': self.isNew,
             'legend': self.legend,
