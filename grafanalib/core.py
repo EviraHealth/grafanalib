@@ -976,6 +976,7 @@ class Dashboard(object):
     timezone = attr.ib(default=UTC)
     version = attr.ib(default=0)
     uid = attr.ib(default=None)
+    panels = attr.ib(default=None)
 
     def _iter_panels(self):
         for row in self.rows:
@@ -1010,6 +1011,7 @@ class Dashboard(object):
             'hideControls': self.hideControls,
             'id': self.id,
             'links': self.links,
+            'panels': self.panels,
             'refresh': self.refresh,
             'rows': self.rows,
             'schemaVersion': self.schemaVersion,
